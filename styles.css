@@ -37,5 +37,13 @@ body,html{
 }
 
 #header_nav a:hover{
+  color: #000C66;
   border-bottom: .1em solid #000C66;
+}
+
+.container{
+  max-width: 62.5rem;
+  margin: 0 auto;
+  font-size: 21px;
+  padding: 2em;
 }
