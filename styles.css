@@ -61,12 +61,13 @@ body,html{
 .b{
   position: absolute;
   animation: anime 3s cubic-bezier(0.17,0.67,0.83,0.67);
+  opacity: 0;
 }
 
 @keyframes anime{
-  0%{left: 10%; transform: rotate(0deg); font-size: 32px;}
-  50%{left: 50%; transform: rotate(45deg); font-size: 40px;}
-  100%{left: 90%; transform: rotate(-45deg); font-size: 32px;}
+  0%{opacity: 1; left: 10%; transform: rotate(0deg); font-size: 32px;}
+  50%{opacity: 1; left: 50%; transform: rotate(45deg); font-size: 40px;}
+  100%{opacity: 1; left: 90%; transform: rotate(-45deg); font-size: 32px;}
 }
 
 .a div:nth-child(5){
@@ -100,4 +101,89 @@ body,html{
         justify-content: space-around;
       }
 
+}
+
+particle{
+  position: fixed;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+}
+
+#about{
+  position: relative;
+  font-size: 24px;
+}
+
+#about_cs{
+  position: absolute;
+  left: 75%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 256px;
+  color: #fff;
+  text-shadow: 3px 3px 20px #f6f6f6, -2px 1px 30px #f6f6f6;
+  text-shadow: 3px 3px 20px #75E6DA, -2px 1px 30px #75E6DA;
+}
+
+@media only screen and (min-width: 600px){
+
+  #flip_this{
+    writing-mode: vertical-lr;
+    }
+
+  }
+
+@media only screen and (max-width: 750px){
+
+  #about_cs{
+    display: none;
+  }
+
+}
+
+#projects{
+  margin: 2em 4em;
+  margin-top: 0;
+  padding: 2em;
+  border: 1px solid #75E6DA;
+  /* border-top: none;
+   border-left: none; */
+  border-radius: 15px;
+  min-height: 250px;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#projects_links{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #ccc;
+  line-height: 1.6;
+}
+
+#projects_links > *{
+  border-right: 3px solid #fff;
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+  padding: 0.75em 0.25em;
+}
+
+#projects_links > *:hover{
+  cursor: pointer;
+  border-right: 3px solid #75E6DA;
+}
+
+#projects_links a{
+  padding: 1em;
+  border-bottom: 1px solid #fff;
+  text-decoration: none;
+  color: inherit;
+}
+
+#projects_links a:hover{
+  border-bottom: 1px solid #ccc;
 }
