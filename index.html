@@ -6,6 +6,7 @@
     <title>Varun</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript">
       document.addEventListener('DOMContentLoaded', () => {
 
@@ -19,16 +20,40 @@
           document.getElementById('intro').style.display = "none";
           document.getElementById('after_intro').style.display = "block";
           document.getElementById('header_nav').style.display = "block";
-          document.querySelector('#project1').style.border = "1px solid #75E6DA";
-          document.querySelector('#project1').style.borderRight = "none";
+          document.querySelectorAll('.fa').forEach((item, i) => {
+            item.style.color = "#fff";
+          });
+          document.querySelector('#fa1').style.color = "navy";
+          document.querySelectorAll('.projects_links_class').forEach((item, i) => {
+            item.style.borderBottom = "2px solid #ccc";
+            item.style.borderRight = "2px solid #fff";
+            item.style.borderLeft = "2px solid #fff";
+          });
+          document.querySelector('#project1').style.border = "2px solid #75E6DA";
+          document.querySelector('#project1').style.borderRight = "2px solid #fff";
+          document.querySelectorAll('.projects_description_class').forEach((item, i) => {
+            item.style.display = "none";
+          });
+          document.querySelector('#projects_description_1').style.display = "flex";
           document.querySelectorAll('.projects_links_class').forEach((item, i) => {
             item.onclick = () => {
               document.querySelectorAll('.projects_links_class').forEach((item1, i1) => {
                 item1.style.border = "none";
-                item1.style.borderBottom = "1px solid #ccc";
+                item1.style.borderBottom = "2px solid #ccc";
+                item1.style.borderRight = "2px solid #fff";
+                item1.style.borderLeft = "2px solid #fff";
+                document.querySelectorAll('.fa').forEach((faicon, i) => {
+                  faicon.style.color = "#fff";
+                });
               });
-              item.style.border = "1px solid #75E6DA";
-              item.style.borderRight = "none";
+              item.style.border = "2px solid #75E6DA";
+              item.style.borderRight = "2px solid #fff";
+              document.querySelectorAll('.projects_description_class').forEach((item2, i2) => {
+                item2.style.display = "none";
+              });
+              console.log(i);
+              document.querySelector(`#projects_description_${i + 1}`).style.display = "flex";
+              document.querySelector(`#fa${i + 1}`).style.color = "navy";
             }
           });
 
@@ -86,7 +111,7 @@
     <header>
       <nav id="header_nav">
         <ul>
-          <li><a href="#">Projects</a></li>
+          <li><a href="#projects_links">Projects</a></li>
           <li><a href="#">MOOCs</a></li>
           <li><a href="#">Scratch</a></li>
           <li><a href="#">Youtube</a></li>
@@ -113,12 +138,63 @@
         </section>
         <section id="projects">
           <div id="projects_links">
-            <p><a href="#" id="project1" class="projects_links_class">Meet and Greet</a></p>
-            <p><a href="#" id="project2" class="projects_links_class">AI Games</a></p>
-            <p><a href="#" id="project3" class="projects_links_class">Neural Networks</a></p>
+            <p><a href="#projects_description_1" id="project1" class="projects_links_class">Campus Connect <i id = "fa1" class="arrow fa fa-long-arrow-right" aria-hidden="true"></i></a></p>
+            <p><a href="#projects_description_2" id="project2" class="projects_links_class">AI Games <i id = "fa2" class="arrow fa fa-long-arrow-right" aria-hidden="true"></i></a></p>
+            <p><a href="#projects_description_3" id="project3" class="projects_links_class">Neural Networks <i id = "fa3" class="arrow fa fa-long-arrow-right" aria-hidden="true"></i></a></p>
           </div>
           <div id="projects_description">
-
+            <div id="projects_description_1" class="projects_description_class">
+              <div class="projects_img">
+                <img src="https://picsum.photos/300/400" alt="random_image">
+              </div>
+              <div class="projects_about">
+                <div class="projects_about_description">
+                  <h1 class="project_about_h1">About Campus Connect</h1>
+                  <ul>
+                    <li>Campus Connect helps students to form chat rooms, organize an event, or to find a sporting partner</li>
+                    <li>The host of a chat room, or an organizer of an event has access to moderate the chat room or an event</li>
+                    <li>Django is used for this Project</li>
+                  </ul>
+                </div>
+                <div class="projects_link">
+                  <h1 class="project_about_h1">Links for Campus Connect</h1>
+                  <ul>
+                    <li>Everything about the project can be found at <a href="https://github.com/J-Varun-P/Campus-Connect" target="_blank">My Github link for Campus Connect</a></li>
+                    <li>A Video explaining Campus Connect and it's features can be found at <a href="https://www.youtube.com/watch?v=xTIUp4KigPc&t=102s" target="_blank">My Youtube link for Campus Connect</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div id="projects_description_2" class="projects_description_class">
+              <div class="projects_img">
+                <img src="https://picsum.photos/500/300" alt="random_image">
+              </div>
+              <div class="projects_about">
+                <div class="projects_about_description">
+                  AI Games such as Tic-Tac-Toe <!--to form chat rooms, organize an event, or to find a sporting partner
+                  <br>
+                  The host of a chat room, or an organizer of an event has access to moderate the chat room or an event-->
+                </div>
+                <div class="projects_link">
+                  <a href="#">A Github Link</a>
+                </div>
+              </div>
+            </div>
+            <div id="projects_description_3" class="projects_description_class">
+              <div class="projects_img">
+                <img src="https://picsum.photos/800/600" alt="random_image">
+              </div>
+              <div class="projects_about">
+                <div class="projects_about_description">
+                  Neural Networks <!--to form chat rooms, organize an event, or to find a sporting partner
+                  <br>
+                  The host of a chat room, or an organizer of an event has access to moderate the chat room or an event-->
+                </div>
+                <div class="projects_link">
+                  <a href="#">A Github Link</a>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </div>
