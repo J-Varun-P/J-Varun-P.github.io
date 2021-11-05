@@ -207,6 +207,7 @@ particle{
   line-height: 3;
   font-family: monospace;
   font-size: 16px;
+  min-width: 400px;
 }
 
 .projects_description_class{
@@ -234,6 +235,7 @@ particle{
   flex-flow: column wrap;
   justify-content: space-between;
   align-items: center;
+  min-width: 350px; /* added */
 }
 
 #projects_links .fa{
@@ -258,10 +260,9 @@ particle{
   }
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 900px/*pre 750px */) {
   #projects > *{
     min-width: 450px;
-    color: crimson;
   }
   #projects_links{
     border-right: none;
@@ -270,10 +271,17 @@ particle{
   }
   #projects #projects_links{
     min-width: 200px;
-    max-width: 60ch;
+    max-width: 75ch; /*pre 750px */
   }
   .arrow{
     transform: rotate(90deg);
+  }
+  /* added */
+  #projects_description{
+    padding: 0;
+  }
+  #projects{
+    padding: 1em;
   }
 }
 
