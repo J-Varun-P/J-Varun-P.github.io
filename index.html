@@ -65,6 +65,13 @@
               console.log(checkinng2link);
             }, 1000);
 
+          document.querySelectorAll('.fa').forEach((item, i) => {
+            item.style.color = "#fff";
+          });
+
+          document.querySelector('#fa1').style.color = "navy";
+          document.querySelector('#project1').style.border = "2px solid #75E5DA";
+          document.querySelector('#project1').style.borderRight = "2px solid #fff";
 
           document.querySelectorAll('.projects_images_class').forEach((item, i) => {
             item.style.display = "none";
@@ -94,6 +101,20 @@
               });
               document.querySelector(`#project${i + 1}_images`).style.display = "block";
               document.querySelector(`#project${i + 1}_description`).style.display = "block";
+
+              document.querySelectorAll('.fa').forEach((item2, i2) => {
+                item2.style.color = "#fff";
+              });
+              document.querySelector(`#fa${i + 1}`).style.color = "navy";
+
+              document.querySelectorAll('.projects_links_class').forEach((item3, i3) => {
+                item3.style.border = "none";
+                item3.style.borderRight = "2px solid #fff";
+                item3.style.borderBottom = "2px solid #ccc";
+              });
+
+              document.querySelector(`#project${i+1}`).style.border = "2px solid #75E6DA";
+              document.querySelector(`#project${i+1}`).style.borderRight = "2px solid #fff";
             }
           });
 

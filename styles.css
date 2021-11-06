@@ -170,8 +170,8 @@ particle{
   padding: 12px 6px;
   text-decoration: none;
   color: inherit;
-  border-bottom: 1px solid #ccc;
-  border-right: 3px solid #fff;
+  border-bottom: 2px solid #ccc;
+  border-right: 2px solid #fff;
 }
 
 #projects_links > *{
@@ -180,7 +180,7 @@ particle{
 }
 
 #projects_links a:hover{
-  border-right: 3px solid #75E6DA;
+  border-right: 2px solid #75E6DA;
 }
 
 #projects_images img{
@@ -256,5 +256,20 @@ particle{
   }
   .projects_images_class{
     text-align: center;
+  }
+}
+
+.arrow{
+  position: absolute;
+  margin-top: 4px;
+  animation: project_links_slide 0.75s infinite alternate;
+}
+
+@keyframes project_links_slide {
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(6px);
   }
 }
