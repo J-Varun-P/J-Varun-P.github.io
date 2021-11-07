@@ -79,6 +79,35 @@
 
           document.querySelector('#project1_images').style.display = "block";
 
+
+          document.querySelectorAll('.scratch_images').forEach((item, i) => {
+            item.style.display = "none";
+          });
+
+          document.querySelector("#scratchimage1").style.display = "block";
+
+
+          document.querySelectorAll(".imgscratch").forEach((item, i) => {
+            item.onmouseover = () => {
+              console.log("Moved!");
+              document.querySelectorAll(".scratch_images").forEach((item1, i1) => {
+                item1.style.display = "none";
+              });
+              document.querySelector(`#scratchimage${i+1}`).style.display = "block";
+              document.querySelectorAll(".imgscratch").forEach((item2, i2) => {
+                item2.style.transform = "perspective(800px) rotateY(25deg)";
+                item2.style.opacity = "0.5";
+              });
+
+              item.style.transform = "perspective(800px) rotateY(0deg)";
+              item.style.opacity = "1";
+            }
+          });
+
+
+
+
+
           document.querySelectorAll('.projects_description_class').forEach((item, i) => {
             item.style.display = "none";
           });
@@ -172,7 +201,7 @@
     <header>
       <nav id="header_nav">
         <ul>
-          <li><a href="#">Projects</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="#">MOOCs</a></li>
           <li><a href="#">Scratch</a></li>
           <li><a href="#">Youtube</a></li>
@@ -231,30 +260,30 @@
               </ul>
             </div>
             <div class="projects_description_class" id="project2_description">
-              <h1 class="about_project_description">Tic-Tac-Toe</h1>
+              <h1 class="about_project_description">Tic-Tac-Toe AI</h1>
               <ul>
-                <li>Tic-Tac-Toe Game using Python</li>
+                <li>Tic-Tac-Toe Game AI using Minimax in Python</li>
                 <li>Alpha Beta Pruning is implemented in the Game</li>
               </ul>
-              <h1 class="about_project_description">Links for Tic-tac-Toe</h1>
+              <h1 class="about_project_description">Links for Tic-tac-Toe AI</h1>
               <ul>
                 <li>Everything about the project can be found at <a href="https://github.com/J-Varun-P/CS50_AI_Tic_Tac_Toe" target="_blank">My Github link for Tic-Tac-Toe</a></li>
                 <li>A Video demonstrating Tic-Tac-Toe can be found at <a href="https://www.youtube.com/watch?v=xTIUp4KigPc&t=102s" target="_blank">My Youtube link for Tic_Tac-Toe</a></li>
               </ul>
-              <h1 class="about_project_description">MineSweeper</h1>
+              <h1 class="about_project_description">MineSweeper AI</h1>
               <ul>
-                <li>MineSweeper Game using Python</li>
+                <li>MineSweeper Game AI in Python</li>
               </ul>
-              <h1 class="about_project_description">Links for MineSweeper</h1>
+              <h1 class="about_project_description">Links for MineSweeper AI</h1>
               <ul>
                 <li>Everything about the project can be found at <a href="https://github.com/J-Varun-P/CS50_AI_Tic_Tac_Toe" target="_blank">My Github link for MineSweeper</a></li>
                 <li>A Video demonstrating MineSweeper can be found at <a href="https://www.youtube.com/watch?v=xTIUp4KigPc&t=102s" target="_blank">My Youtube link for MineSweeper</a></li>
               </ul>
-              <h1 class="about_project_description">Nim Game</h1>
+              <h1 class="about_project_description">Nim Game AI</h1>
               <ul>
-                <li>Nim Game using Python</li>
+                <li>Nim Game AI through reinforcement learning in Python</li>
               </ul>
-              <h1 class="about_project_description">Links for Nim Game</h1>
+              <h1 class="about_project_description">Links for Nim Game AI</h1>
               <ul>
                 <li>Everything about the project can be found at <a href="https://github.com/J-Varun-P/CS50_AI_Tic_Tac_Toe" target="_blank">My Github link for Nim</a></li>
                 <li>A Video demonstrating Nim Game can be found at <a href="https://www.youtube.com/watch?v=xTIUp4KigPc&t=102s" target="_blank">My Youtube link for Nim</a></li>
@@ -262,8 +291,50 @@
             </div>
             <div class="projects_description_class" id="project3_description">
               <h1 class="about_project_description">Neural Networks</h1>
+              <ul>
+                <li>Neural Networks to classify road signs based on an image of those signs</li>
+                <li>Implemented using TensorFlow</li>
+                <li>DataSet used is German Traffic Sign Recognition Benchmark which contains thousands of images of 43 different road signs</li>
+              </ul>
               <h1 class="about_project_description">Links for Neural Network</h1>
+              <ul>
+                <li>Everything about the project can be found at <a href="https://github.com/J-Varun-P/CS50_AI_Tic_Tac_Toe" target="_blank">My Github link for Nim</a></li>
+                <li>A Video demonstrating Nim Game can be found at <a href="https://www.youtube.com/watch?v=xTIUp4KigPc&t=102s" target="_blank">My Youtube link for Nim</a></li>
+              </ul>
             </div>
+          </div>
+        </section>
+        <div id="scratch_header">
+          <h1 class="about_project_description">Scratch</h1>
+        </div>
+        <section id="scratch">
+          <div class="scratch_class">
+            <img src="https://picsum.photos/300/400" alt="random_image" id="imgscratch1" class="imgscratch"></a>
+            <img src="https://picsum.photos/300/400" alt="random_image" id="imgscratch2" class="imgscratch"></a>
+            <img src="https://picsum.photos/300/400" alt="random_image" id="imgscratch3" class="imgscratch"></a>
+          </div>
+          <div class="scratch_images" id="scratchimage1">
+            <h1 class="about_project_description">Follow Giga</h1>
+            <ul>
+              <li>My First Game On Scratch</li>
+              <li>Follow Giga is an interactive game that I have developed in Scratch</li>
+              <li>Character Giga swaps places with other clones of giga and the player should follow Giga and find out where the real Giga is</li>
+            </ul>
+          </div>
+          <div class="scratch_images" id="scratchimage2">
+            <h1 class="about_project_description">Help Pico</h1>
+            <ul>
+              <li>My Second Game On Scratch</li>
+              <li>This Game revolves around a character ( Pico ) whom the Player should help avoid obstacles to get high score</li>
+            </ul>
+          </div>
+          <div class="scratch_images" id="scratchimage3">
+            <h1 class='about_project_description'>Math Game</h1>
+            <ul>
+              <li>I developed this interactive Game to help kids with Math</li>
+              <li>A Character randomly asks math problems to kids and assigns the score</li>
+              <li>As the score gets higher, the problems get tougher</li>
+            </ul>
           </div>
         </section>
       </div>

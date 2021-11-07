@@ -199,7 +199,7 @@ particle{
 	-webkit-text-fill-color: transparent;
 }
 
-#projects_description li{
+#projects_description li, .scratch_images li{
   line-height: 2.5;
 }
 
@@ -272,4 +272,53 @@ particle{
   to{
     transform: translateX(6px);
   }
+}
+
+#scratch{
+  border: 2px solid #30CFD0;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 10px;
+  width: 80%;
+  margin: 10px auto;
+}
+
+#scratch_header{
+  width: 80%;
+  margin: 10px auto;
+}
+
+.scratch_class{
+  max-width: 600px;
+  max-height: 400px;
+}
+
+.scratch_class img{
+  width: 30%;
+  height: 100%;
+  transform-origin: center;
+  transform: perspective(800px) rotateY(25deg);
+  transition: 0.5s;
+  -webkit-box-reflect:below 2px linear-gradient(transparent, transparent, #0004);
+}
+
+.scratch_class:hover img{
+  opacity: 0.5;
+}
+
+.scratch_class img:hover{
+  transform: perspective(800px) rotateY(0deg);
+  opacity: 1;
+}
+
+.scratch_images{
+  padding: 20px 10px;
+  border: 1px solid #75E6DA;
+  border-radius: 12px;
+  margin: 20px 10px;
+  margin-bottom: 0px;
+  max-width: 600px;
 }
