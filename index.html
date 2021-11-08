@@ -86,6 +86,43 @@
 
           document.querySelector("#scratchimage1").style.display = "block";
 
+          document.querySelectorAll('.miniimgMOOCs').forEach((item, i) => {
+            item.onclick = () => {
+              document.querySelectorAll('.imgMOOCs').forEach((item1, i1) => {
+                item1.style.display = "none";
+              });
+              document.querySelector(`#imgMOOCs${i+1}`).style.display = "block";
+              document.querySelectorAll('.miniimgMOOCs').forEach((item2, i2) => {
+                item2.style.opacity = "0.75";
+              });
+              item.style.opacity = "1";
+            }
+          });
+
+          document.querySelector('#imgMOOCarrows1').onclick = () => {
+            console.log(`This ${toggle_image}`);
+            toggle_image -= 1;
+            if (toggle_image < 1){
+              toggle_image += 3;
+            }
+            document.querySelectorAll('.imgMOOCs').forEach((item, i) => {
+              item.style.display = "none";
+            });
+            document.querySelector(`#imgMOOCs${toggle_image}`).style.display = "block";
+          }
+
+          document.querySelector('#imgMOOCarrows2').onclick = () => {
+            console.log(`This ${toggle_image}`);
+            toggle_image += 1;
+            if (toggle_image > 3){
+              toggle_image -= 3;
+            }
+            document.querySelectorAll('.imgMOOCs').forEach((item, i) => {
+              item.style.display = "none";
+            });
+            document.querySelector(`#imgMOOCs${toggle_image}`).style.display = "block";
+          }
+
 
           document.querySelectorAll(".imgscratch").forEach((item, i) => {
             item.onmouseover = () => {
@@ -104,9 +141,28 @@
             }
           });
 
+          document.querySelector('#miniimgMOOCs1').style.opacity = "1";
 
+          document.querySelectorAll('.imgscratch').forEach((item, i) => {
+            item.style.opacity = "0.5";
+          });
 
+          document.querySelector('#imgscratch1').style.opacity = "1";
+          document.querySelector('#imgscratch1').style.transform = "perspective(800px) rotateY(0deg)";
 
+          document.querySelectorAll('.University_course_class').forEach((item, i) => {
+            item.style.display = "none";
+          });
+
+          document.querySelector('#University_course1').style.display = "block";
+
+          var toggle_image = 1;
+
+          document.querySelectorAll('.imgMOOCs').forEach((item, i) => {
+            item.style.display = "none";
+          });
+
+          document.querySelector('#imgMOOCs1').style.display = "block";
 
           document.querySelectorAll('.projects_description_class').forEach((item, i) => {
             item.style.display = "none";
@@ -193,6 +249,23 @@
             pop();
           }, 5000);
 
+          const imageslideshow = window.setInterval(function() {
+            imageslideshowfunction();
+          }, 3000);
+
+          var toggle_image2 = 1;
+
+          function imageslideshowfunction(){
+            document.querySelectorAll('.imgMOOCs').forEach((item, i) => {
+              item.style.display = "none";
+            });
+            document.querySelector(`#imgMOOCs${toggle_image2}`).style.display = "block";
+            toggle_image2 += 1;
+            if (toggle_image2 > 3){
+              toggle_image2 = 1;
+            }
+          }
+
         });
       });
     </script>
@@ -201,9 +274,9 @@
     <header>
       <nav id="header_nav">
         <ul>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#">MOOCs</a></li>
-          <li><a href="#">Scratch</a></li>
+          <li><a href="#link_for_projects">Projects</a></li>
+          <li><a href="#link_for_MOOCs">MOOCs</a></li>
+          <li><a href="#link_for_scratch">Scratch</a></li>
           <li><a href="#">Youtube</a></li>
         </ul>
       </nav>
@@ -226,6 +299,9 @@
             CS
           </div>
         </section>
+        <div class="General_header">
+          <h1 class="about_project_description" id="link_for_projects">Projects</h1>
+        </div>
         <section id="projects">
           <ul id="projects_links">
             <li><a href="#projects_description_1" id="project1" class="projects_links_class">Campus Connect <i id = "fa1" class="arrow fa fa-long-arrow-right" aria-hidden="true"></i></a></li>
@@ -304,14 +380,59 @@
             </div>
           </div>
         </section>
+        <div id="MOOCs_header" class="General_header">
+          <h1 class="about_project_description" id="link_for_MOOCs">MOOCs</h1>
+        </div>
+        <section id="MOOCs">
+          <div id="University_name">
+            <h2>Course Offered by</h2>
+            <h3>Harvard University</h3>
+          </div>
+          <div id="University_Certificates">
+            <div class="use_this_color_maybe"><h2>Course Certificate</h2></div>
+            <div id="left_right_arrows_and_images">
+              <div id="imgMOOCs1" class="imgMOOCs">
+                <img src="https://picsum.photos/300/400" alt="random_image">
+              </div>
+              <div id="imgMOOCs2" class="imgMOOCs">
+                <img src="https://picsum.photos/301/400" alt="random_image">
+              </div>
+              <div id="imgMOOCs3" class="imgMOOCs">
+                <img src="https://picsum.photos/300/401" alt="random_image">
+              </div>
+              <div id="imgMOOCarrows1" class="imgMOOCarrows_class">
+                &#10094;
+              </div>
+              <div id="imgMOOCarrows2" class="imgMOOCarrows_class">
+                &#10095;
+              </div>
+            </div>
+          </div>
+          <div id="University_course">
+            <div class="University_course_class" id="University_course1">
+              <h1 class="about_project_description">Introduction to Artificial Intelligence with Python</h1>
+            </div>
+            <div class="University_course_class" id="University_course2">
+              <h1 class="about_project_description">Web Programming with Python and Javascript</h1>
+            </div>
+            <div class="University_course_class" id="University_course3">
+              <h1 class="about_project_description">Introduction to Computer Science</h1>
+            </div>
+          </div>
+          <div id="Mini_Pictures">
+            <img src="https://picsum.photos/300/400" alt="random_image" id="miniimgMOOCs1" class="miniimgMOOCs">
+            <img src="https://picsum.photos/301/400" alt="random_image" id="miniimgMOOCS2" class="miniimgMOOCs">
+            <img src="https://picsum.photos/300/401" alt="random_image" id="miniimgMOOCs3" class="miniimgMOOCs">
+          </div>
+        </section>
         <div id="scratch_header">
-          <h1 class="about_project_description">Scratch</h1>
+          <h1 class="about_project_description" id="link_for_scratch">Scratch</h1>
         </div>
         <section id="scratch">
           <div class="scratch_class">
-            <img src="https://picsum.photos/300/400" alt="random_image" id="imgscratch1" class="imgscratch"></a>
-            <img src="https://picsum.photos/300/400" alt="random_image" id="imgscratch2" class="imgscratch"></a>
-            <img src="https://picsum.photos/300/400" alt="random_image" id="imgscratch3" class="imgscratch"></a>
+            <img src="https://picsum.photos/300/400" alt="random_image" id="imgscratch1" class="imgscratch">
+            <img src="https://picsum.photos/300/400" alt="random_image" id="imgscratch2" class="imgscratch">
+            <img src="https://picsum.photos/300/400" alt="random_image" id="imgscratch3" class="imgscratch">
           </div>
           <div class="scratch_images" id="scratchimage1">
             <h1 class="about_project_description">Follow Giga</h1>
