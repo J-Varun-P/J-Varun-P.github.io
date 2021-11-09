@@ -65,7 +65,7 @@
               console.log(checkinng2link);
             }, 1000);
 
-          document.querySelectorAll('.fa').forEach((item, i) => {
+          document.querySelectorAll('.arrow').forEach((item, i) => {
             item.style.color = "#fff";
           });
 
@@ -79,6 +79,10 @@
 
           document.querySelector('#project1_images').style.display = "block";
 
+          document.querySelectorAll('.certificate_link_for_cs50_class').forEach((item, i) => {
+            item.style.display = "none";
+          });
+          document.querySelector(`#certificate_link_for_cs50_1`).style.display = "block";
 
           document.querySelectorAll('.scratch_images').forEach((item, i) => {
             item.style.display = "none";
@@ -96,6 +100,14 @@
                 item2.style.opacity = "0.75";
               });
               item.style.opacity = "1";
+              document.querySelectorAll('.University_course_class').forEach((item3, i3) => {
+                item3.style.display = "none";
+              });
+              document.querySelector(`#University_course${i+1}`).style.display = "block";
+              document.querySelectorAll('.certificate_link_for_cs50_class').forEach((item4, i4) => {
+                item4.style.display = "none";
+              });
+              document.querySelector(`#certificate_link_for_cs50${i+1}`).style.display = "block";
             }
           });
 
@@ -109,6 +121,14 @@
               item.style.display = "none";
             });
             document.querySelector(`#imgMOOCs${toggle_image}`).style.display = "block";
+            document.querySelectorAll('.University_course_class').forEach((item1, i1) => {
+              item1.style.display = "none";
+            });
+            document.querySelector(`#University_course${toggle_image}`).style.display = "block";
+            document.querySelectorAll('.certificate_link_for_cs50_class').forEach((item2, i2) => {
+              item2.style.display = "none";
+            });
+            document.querySelector(`#certificate_link_for_cs50${toggle_image}`).style.display = "block";
           }
 
           document.querySelector('#imgMOOCarrows2').onclick = () => {
@@ -121,6 +141,14 @@
               item.style.display = "none";
             });
             document.querySelector(`#imgMOOCs${toggle_image}`).style.display = "block";
+            document.querySelectorAll('.University_course_class').forEach((item1, i1) => {
+              item1.style.display = "none";
+            });
+            document.querySelectorAll('.certificate_link_for_cs50_class').forEach((item2, i2) => {
+              item2.style.display = "none";
+            });
+            document.querySelector(`#certificate_link_for_cs50${toggle_image}`).style.display = "block";
+            document.querySelector(`#University_course${toggle_image}`).style.display = "block";
           }
 
 
@@ -203,6 +231,21 @@
             }
           });
 
+          document.querySelector('#full_certificate_display').style.display = "none";
+          document.querySelectorAll('.imgMOOCs').forEach((item, i) => {
+            item.onclick = () => {
+              const src = item.dataset.path;
+              console.log(src);
+              document.querySelector('#full_certificate_display').style.display = "block";
+              document.querySelector('#close_full_certificate_display').style.fontSize = "50px";
+              document.querySelector('#close_full_certificate_display').children[1].src = src;
+              console.log(document.querySelector('#close_full_certificate_display'));
+            }
+          });
+
+          document.querySelector('#close_full_certificate_display').onclick = () =>{
+            document.querySelector('#full_certificate_display').style.display = "none";
+          }
 
           var position = document.getElementById('about');
           console.log(position);
@@ -260,6 +303,14 @@
               item.style.display = "none";
             });
             document.querySelector(`#imgMOOCs${toggle_image2}`).style.display = "block";
+            document.querySelectorAll('.University_course_class').forEach((item1, i1) => {
+              item1.style.display = "none";
+            });
+            document.querySelector(`#University_course${toggle_image2}`).style.display = "block";
+            document.querySelectorAll('.certificate_link_for_cs50_class').forEach((item2, i2) => {
+              item2.style.display = "none";
+            });
+            document.querySelector(`#certificate_link_for_cs50_${toggle_image2}`).style.display = "block";
             toggle_image2 += 1;
             if (toggle_image2 > 3){
               toggle_image2 = 1;
@@ -372,7 +423,7 @@
                 <li>Implemented using TensorFlow</li>
                 <li>DataSet used is German Traffic Sign Recognition Benchmark which contains thousands of images of 43 different road signs</li>
               </ul>
-              <h1 class="about_project_description">Links for Neural Network</h1>
+              <h1 class="about_project_description">Links for Neural Networks</h1>
               <ul>
                 <li>Everything about the project can be found at <a href="https://github.com/J-Varun-P/CS50_AI_Tic_Tac_Toe" target="_blank">My Github link for Nim</a></li>
                 <li>A Video demonstrating Nim Game can be found at <a href="https://www.youtube.com/watch?v=xTIUp4KigPc&t=102s" target="_blank">My Youtube link for Nim</a></li>
@@ -387,18 +438,33 @@
           <div id="University_name">
             <h2>Course Offered by</h2>
             <h3>Harvard University</h3>
+            <h2>Certificate Link</h2>
+            <div id="certificate_link_for_cs50">
+              <div class="certificate_link_for_cs50_class" id="certificate_link_for_cs50_1">
+                <h4> <a href="https://certificates.cs50.io/13f3d21b-7cfc-4df9-92ab-cc3976755661" target="_blank">AI Certificate from Harvard</a> </h4>
+              </div>
+              <div class="certificate_link_for_cs50_class" id="certificate_link_for_cs50_2">
+                <h4> <a href="https://certificates.cs50.io/eed30278-13bf-4f11-899b-ec798bc9b777" target="_blank">Web Programming Certificate from Harvard</a> </h4>
+              </div>
+              <div class="certificate_link_for_cs50_class" id="certificate_link_for_cs50_3">
+                <h4> <a href="https://certificates.cs50.io/71ed4e73-6dea-4689-809c-349774d7ee25" target="_blank">CS50 Certificate from Harvard</a> </h4>
+              </div>
+            </div>
           </div>
           <div id="University_Certificates">
             <div class="use_this_color_maybe"><h2>Course Certificate</h2></div>
             <div id="left_right_arrows_and_images">
-              <div id="imgMOOCs1" class="imgMOOCs">
-                <img src="https://picsum.photos/300/400" alt="random_image">
+              <div id="imgMOOCs1" class="imgMOOCs" data-path="Harvard_CS50_AI.png">
+                <!--<img src="https://picsum.photos/300/400" alt="random_image">-->
+                <img src="Harvard_CS50_AI.png" alt="Harvard_CS50_AI_Certificate">
               </div>
-              <div id="imgMOOCs2" class="imgMOOCs">
-                <img src="https://picsum.photos/301/400" alt="random_image">
+              <div id="imgMOOCs2" class="imgMOOCs" data-path="Harvard_CS50_Web.png">
+                <!--<img src="https://picsum.photos/301/400" alt="random_image">-->
+                <img src="Harvard_CS50_Web.png" alt="Harvard_CS50_Web_Certificate">
               </div>
-              <div id="imgMOOCs3" class="imgMOOCs">
-                <img src="https://picsum.photos/300/401" alt="random_image">
+              <div id="imgMOOCs3" class="imgMOOCs" data-path="Harvard_CS50X.png">
+                <!--<img src="https://picsum.photos/300/401" alt="random_image">-->
+                <img src="Harvard_CS50X.png" alt="Harvard_CS50_X_Certificate">
               </div>
               <div id="imgMOOCarrows1" class="imgMOOCarrows_class">
                 &#10094;
@@ -420,9 +486,12 @@
             </div>
           </div>
           <div id="Mini_Pictures">
-            <img src="https://picsum.photos/300/400" alt="random_image" id="miniimgMOOCs1" class="miniimgMOOCs">
-            <img src="https://picsum.photos/301/400" alt="random_image" id="miniimgMOOCS2" class="miniimgMOOCs">
-            <img src="https://picsum.photos/300/401" alt="random_image" id="miniimgMOOCs3" class="miniimgMOOCs">
+            <img src="Harvard_CS50_AI.png" alt="Harvard_CS50_AI_Certificate" id="miniimgMOOCs1" class="miniimgMOOCs">
+            <!--<img src="https://picsum.photos/300/400" alt="random_image" id="miniimgMOOCs1" class="miniimgMOOCs">-->
+            <img src="Harvard_CS50_Web.png" alt="Harvard_CS50_Web_Certificate" id="miniimgMOOCs2" class="miniimgMOOCs">
+            <!--<img src="https://picsum.photos/301/400" alt="random_image" id="miniimgMOOCS2" class="miniimgMOOCs">-->
+            <img src="Harvard_CS50X.png" alt="Harvard_CS50_X_Certificate" id="miniimgMOOCs3" class="miniimgMOOCs">
+            <!--<img src="https://picsum.photos/300/401" alt="random_image" id="miniimgMOOCs3" class="miniimgMOOCs">-->
           </div>
         </section>
         <div id="scratch_header">
@@ -456,6 +525,12 @@
               <li>A Character randomly asks math problems to kids and assigns the score</li>
               <li>As the score gets higher, the problems get tougher</li>
             </ul>
+          </div>
+        </section>
+        <section id="full_certificate_display">
+          <div id="close_full_certificate_display">
+            <i class="fa fa-times"></i>
+            <img src="" alt="Course_Certificate">
           </div>
         </section>
       </div>
