@@ -147,6 +147,10 @@ particle{
     display: none;
   }
 
+  #about{
+    line-height: 2.5;
+  }
+
 }
 
 #projects{
