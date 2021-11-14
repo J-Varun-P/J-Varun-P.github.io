@@ -45,6 +45,8 @@
             */
 
             var checkinng2link = 0;
+            var toggle_image = 1;
+            var toggle_image2 = 1;
 
             function check2link(){
               if(window.innerWidth < 1200){
@@ -92,6 +94,8 @@
 
           document.querySelectorAll('.miniimgMOOCs').forEach((item, i) => {
             item.onclick = () => {
+              toggle_image = i + 1;
+              toggle_image2 = toggle_image;
               document.querySelectorAll('.imgMOOCs').forEach((item1, i1) => {
                 item1.style.display = "none";
               });
@@ -107,16 +111,20 @@
               document.querySelectorAll('.certificate_link_for_cs50_class').forEach((item4, i4) => {
                 item4.style.display = "none";
               });
-              document.querySelector(`#certificate_link_for_cs50${i+1}`).style.display = "block";
+              document.querySelector(`#certificate_link_for_cs50_${i+1}`).style.display = "block";
+              document.querySelectorAll('.miniimgMOOCs').forEach((item5, i5) => {
+                item5.style.border = "1px solid #fff";
+              });
+              document.querySelector(`#miniimgMOOCs${i+1}`).style.border = "1px solid #75E6DA";
             }
           });
 
           document.querySelector('#imgMOOCarrows1').onclick = () => {
-            console.log(`This ${toggle_image}`);
             toggle_image -= 1;
             if (toggle_image < 1){
               toggle_image += 3;
             }
+            toggle_image2 = toggle_image;
             document.querySelectorAll('.imgMOOCs').forEach((item, i) => {
               item.style.display = "none";
             });
@@ -128,15 +136,19 @@
             document.querySelectorAll('.certificate_link_for_cs50_class').forEach((item2, i2) => {
               item2.style.display = "none";
             });
-            document.querySelector(`#certificate_link_for_cs50${toggle_image}`).style.display = "block";
+            document.querySelector(`#certificate_link_for_cs50_${toggle_image}`).style.display = "block";
+            document.querySelectorAll('.miniimgMOOCs').forEach((item3, i3) => {
+              item3.style.border = "1px solid #fff";
+            });
+            document.querySelector(`#miniimgMOOCs${toggle_image}`).style.border = "1px solid #75E6DA";
           }
 
           document.querySelector('#imgMOOCarrows2').onclick = () => {
-            console.log(`This ${toggle_image}`);
             toggle_image += 1;
             if (toggle_image > 3){
               toggle_image -= 3;
             }
+            toggle_image2 = toggle_image;
             document.querySelectorAll('.imgMOOCs').forEach((item, i) => {
               item.style.display = "none";
             });
@@ -147,14 +159,17 @@
             document.querySelectorAll('.certificate_link_for_cs50_class').forEach((item2, i2) => {
               item2.style.display = "none";
             });
-            document.querySelector(`#certificate_link_for_cs50${toggle_image}`).style.display = "block";
+            document.querySelector(`#certificate_link_for_cs50_${toggle_image}`).style.display = "block";
             document.querySelector(`#University_course${toggle_image}`).style.display = "block";
+            document.querySelectorAll('.miniimgMOOCs').forEach((item3, i3) => {
+              item3.style.border = "1px solid #fff";
+            });
+            document.querySelector(`#miniimgMOOCs${toggle_image}`).style.border = "1px solid #75E6DA";
           }
 
 
           document.querySelectorAll(".imgscratch").forEach((item, i) => {
             item.onmouseover = () => {
-              console.log("Moved!");
               document.querySelectorAll(".scratch_images").forEach((item1, i1) => {
                 item1.style.display = "none";
               });
@@ -184,8 +199,6 @@
 
           document.querySelector('#University_course1').style.display = "block";
 
-          var toggle_image = 1;
-
           document.querySelectorAll('.imgMOOCs').forEach((item, i) => {
             item.style.display = "none";
           });
@@ -212,7 +225,7 @@
                   item.style.display = "none";
                 });
               });
-              document.querySelector(`#project${i + 1}_images`).style.display = "block";
+              document.querySelector(`#project${i + 1}_images`).style.display = "flex";
               document.querySelector(`#project${i + 1}_description`).style.display = "block";
 
               document.querySelectorAll('.fa').forEach((item2, i2) => {
@@ -235,11 +248,9 @@
           document.querySelectorAll('.imgMOOCs').forEach((item, i) => {
             item.onclick = () => {
               const src = item.dataset.path;
-              console.log(src);
               document.querySelector('#full_certificate_display').style.display = "block";
               document.querySelector('#close_full_certificate_display').style.fontSize = "50px";
               document.querySelector('#close_full_certificate_display').children[1].src = src;
-              console.log(document.querySelector('#close_full_certificate_display'));
             }
           });
 
@@ -248,9 +259,11 @@
           }
 
           var position = document.getElementById('about');
+          /*
           console.log(position);
           console.log(position.offsetTop);
           console.log(position.offsetWidth);
+          */
 
           function pop () {
               const x = position.offsetLeft + Math.random() * position.offsetWidth;
@@ -294,11 +307,16 @@
 
           const imageslideshow = window.setInterval(function() {
             imageslideshowfunction();
-          }, 3000);
+          }, 5000);
 
-          var toggle_image2 = 1;
 
           function imageslideshowfunction(){
+            toggle_image2 = toggle_image;
+            toggle_image2 += 1;
+            if (toggle_image2 > 3){
+              toggle_image2 = 1;
+            }
+            toggle_image = toggle_image2;
             document.querySelectorAll('.imgMOOCs').forEach((item, i) => {
               item.style.display = "none";
             });
@@ -311,11 +329,25 @@
               item2.style.display = "none";
             });
             document.querySelector(`#certificate_link_for_cs50_${toggle_image2}`).style.display = "block";
-            toggle_image2 += 1;
-            if (toggle_image2 > 3){
-              toggle_image2 = 1;
-            }
+            document.querySelectorAll('.miniimgMOOCs').forEach((item3, i3) => {
+              item3.style.border = "1px solid #fff";
+            });
+            document.querySelector(`#miniimgMOOCs${toggle_image2}`).style.border = "1px solid #75E6DA";
+            document.querySelectorAll('.imgMOOCs').forEach((item4, i4) => {
+              item4.style.display = "none";
+            });
+            document.querySelector(`#imgMOOCs${toggle_image2}`).style.display = "block";
           }
+
+          document.querySelectorAll('.miniimgMOOCs').forEach((item, i) => {
+            item.style.opacity = "1";
+          });
+
+          document.querySelectorAll('.miniimgMOOCs').forEach((item3, i3) => {
+            item3.style.border = "1px solid #fff";
+          });
+          document.querySelector(`#miniimgMOOCs1`).style.border = "1px solid #75E6DA";
+
 
         });
       });
@@ -328,7 +360,7 @@
           <li><a href="#link_for_projects">Projects</a></li>
           <li><a href="#link_for_MOOCs">MOOCs</a></li>
           <li><a href="#link_for_scratch">Scratch</a></li>
-          <li><a href="#">Youtube</a></li>
+          <li><a href="#link_for_youtube">Youtube</a></li>
         </ul>
       </nav>
     </header>
@@ -361,15 +393,22 @@
           </ul>
           <div id="projects_images">
             <div class="projects_images_class" id="project1_images">
-              <img src="https://picsum.photos/300/400" alt="random_image">
+              <!--<img src="https://picsum.photos/300/400" alt="random_image">-->
+              <img src="Campus_Connect.png" alt="Campus_Connect">
             </div>
             <div class="projects_images_class" id="project2_images">
+              <!--
               <img src="https://picsum.photos/300/400" alt="random_image">
               <img src="https://picsum.photos/300/400" alt="random_image">
               <img src="https://picsum.photos/300/400" alt="random_image">
+            -->
+            <img src="TicTacToe.png" alt="Tic_Tac_Toe">
+            <img src="Minesweeper.png" alt="Minesweeper.png">
+            <img src="Nim.png" alt="Nim">
             </div>
             <div class="projects_images_class" id="project3_images">
-              <img src="https://picsum.photos/300/400" alt="random_image">
+              <!--<img src="https://picsum.photos/300/400" alt="random_image">-->
+              <img src="Neural_Networks.png" alt="Neural_Networks">
             </div>
           </div>
           <div id="projects_description">
@@ -382,8 +421,8 @@
               </ul>
               <h1 class="about_project_description">Links for Campus Connect</h1>
               <ul>
-                <li>Everything about the project can be found at <a href="https://github.com/J-Varun-P/Campus-Connect" target="_blank">My Github link for Campus Connect</a></li>
-                <li>A Video explaining Campus Connect and it's features can be found at <a href="https://www.youtube.com/watch?v=xTIUp4KigPc&t=102s" target="_blank">My Youtube link for Campus Connect</a></li>
+                <li>Everything about the project can be found at <a class="color_me_github" href="https://github.com/J-Varun-P/Campus-Connect" target="_blank">My Github link for Campus Connect</a></li>
+                <li>A Video explaining Campus Connect and it's features can be found at <a class="color_me_youtube" href="https://www.youtube.com/watch?v=xTIUp4KigPc&t=1s" target="_blank">My Youtube link for Campus Connect</a></li>
               </ul>
             </div>
             <div class="projects_description_class" id="project2_description">
@@ -394,8 +433,8 @@
               </ul>
               <h1 class="about_project_description">Links for Tic-tac-Toe AI</h1>
               <ul>
-                <li>Everything about the project can be found at <a href="https://github.com/J-Varun-P/CS50_AI_Tic_Tac_Toe" target="_blank">My Github link for Tic-Tac-Toe</a></li>
-                <li>A Video demonstrating Tic-Tac-Toe can be found at <a href="https://www.youtube.com/watch?v=xTIUp4KigPc&t=102s" target="_blank">My Youtube link for Tic_Tac-Toe</a></li>
+                <li>Everything about the project can be found at <a class="color_me_github" href="https://github.com/J-Varun-P/CS50_AI_Tic_Tac_Toe" target="_blank">My Github link for Tic-Tac-Toe</a></li>
+                <li>A Video demonstrating Tic-Tac-Toe can be found at <a class="color_me_youtube" href="https://youtu.be/v55ZrjMkMO0" target="_blank">My Youtube link for Tic_Tac-Toe</a></li>
               </ul>
               <h1 class="about_project_description">MineSweeper AI</h1>
               <ul>
@@ -403,8 +442,8 @@
               </ul>
               <h1 class="about_project_description">Links for MineSweeper AI</h1>
               <ul>
-                <li>Everything about the project can be found at <a href="https://github.com/J-Varun-P/CS50_AI_Tic_Tac_Toe" target="_blank">My Github link for MineSweeper</a></li>
-                <li>A Video demonstrating MineSweeper can be found at <a href="https://www.youtube.com/watch?v=xTIUp4KigPc&t=102s" target="_blank">My Youtube link for MineSweeper</a></li>
+                <li>Everything about the project can be found at <a class="color_me_github" href="https://github.com/J-Varun-P/CS50_AI_MineSweeper" target="_blank">My Github link for MineSweeper</a></li>
+                <li>A Video demonstrating MineSweeper can be found at <a class="color_me_youtube" href="https://youtu.be/_GH3AXX5IK4" target="_blank">My Youtube link for MineSweeper</a></li>
               </ul>
               <h1 class="about_project_description">Nim Game AI</h1>
               <ul>
@@ -412,8 +451,8 @@
               </ul>
               <h1 class="about_project_description">Links for Nim Game AI</h1>
               <ul>
-                <li>Everything about the project can be found at <a href="https://github.com/J-Varun-P/CS50_AI_Tic_Tac_Toe" target="_blank">My Github link for Nim</a></li>
-                <li>A Video demonstrating Nim Game can be found at <a href="https://www.youtube.com/watch?v=xTIUp4KigPc&t=102s" target="_blank">My Youtube link for Nim</a></li>
+                <li>Everything about the project can be found at <a class="color_me_github" href="https://github.com/J-Varun-P/CS50_AI_Nim" target="_blank">My Github link for Nim</a></li>
+                <li>A Video demonstrating Nim Game can be found at <a class="color_me_youtube" href="https://youtu.be/QtL3-Nt28oA" target="_blank">My Youtube link for Nim</a></li>
               </ul>
             </div>
             <div class="projects_description_class" id="project3_description">
@@ -425,8 +464,8 @@
               </ul>
               <h1 class="about_project_description">Links for Neural Networks</h1>
               <ul>
-                <li>Everything about the project can be found at <a href="https://github.com/J-Varun-P/CS50_AI_Tic_Tac_Toe" target="_blank">My Github link for Nim</a></li>
-                <li>A Video demonstrating Nim Game can be found at <a href="https://www.youtube.com/watch?v=xTIUp4KigPc&t=102s" target="_blank">My Youtube link for Nim</a></li>
+                <li>Everything about the project can be found at <a class="color_me_github" href="https://github.com/J-Varun-P/CS50_Traffic" target="_blank">My Github link for Neural Networks</a></li>
+                <li>A Video demonstrating Neural Networks can be found at <a class="color_me_youtube" href="https://www.youtube.com/watch?v=Sl8pMJTcGKk&t=6s" target="_blank">My Youtube link for Neural Networks</a></li>
               </ul>
             </div>
           </div>
@@ -499,9 +538,14 @@
         </div>
         <section id="scratch">
           <div class="scratch_class">
+            <img src="Follow_Giga.png" alt="random_image" id="imgscratch1" class="imgscratch">
+            <img src="Help_Pico.png" alt="random_image" id="imgscratch2" class="imgscratch">
+            <img src="Math_Game.png" alt="random_image" id="imgscratch3" class="imgscratch">
+            <!--
             <img src="https://picsum.photos/300/400" alt="random_image" id="imgscratch1" class="imgscratch">
             <img src="https://picsum.photos/300/400" alt="random_image" id="imgscratch2" class="imgscratch">
             <img src="https://picsum.photos/300/400" alt="random_image" id="imgscratch3" class="imgscratch">
+          -->
           </div>
           <div class="scratch_images" id="scratchimage1">
             <h1 class="about_project_description">Follow Giga</h1>
@@ -510,12 +554,22 @@
               <li>Follow Giga is an interactive game that I have developed in Scratch</li>
               <li>Character Giga swaps places with other clones of giga and the player should follow Giga and find out where the real Giga is</li>
             </ul>
+            <h1 class="about_project_description">Links for Follow Giga</h1>
+            <ul>
+              <li>Code for Follow Giga can be found at <a class="color_me_scratch" href="https://scratch.mit.edu/projects/445209635/" target="_blank">My Scratch Link for Follow Giga</a> </li>
+              <li>A Video demonstrating Follow Giga can be found at <a class="color_me_youtube" href="https://youtu.be/36HCuJuZi8Q" target="_blank">My Youtube Link for Follow Giga</a> </li>
+            </ul>
           </div>
           <div class="scratch_images" id="scratchimage2">
             <h1 class="about_project_description">Help Pico</h1>
             <ul>
               <li>My Second Game On Scratch</li>
               <li>This Game revolves around a character ( Pico ) whom the Player should help avoid obstacles to get high score</li>
+            </ul>
+            <h1 class="about_project_description">Links for Help Pico</h1>
+            <ul>
+              <li>Code for Help Pico can be found at <a class="color_me_scratch" href="https://scratch.mit.edu/projects/471465262/" target="_blank">My Scratch Link for Help Pico</a> </li>
+              <li>A Video demonstrating Help Pico can be found at <a class="color_me_youtube" href="https://youtu.be/8ST4Z4FfUUQ" target="_blank">My Youtube Link for Help Pico</a> </li>
             </ul>
           </div>
           <div class="scratch_images" id="scratchimage3">
@@ -525,6 +579,11 @@
               <li>A Character randomly asks math problems to kids and assigns the score</li>
               <li>As the score gets higher, the problems get tougher</li>
             </ul>
+            <h1 class="about_project_description">Links for Math Game</h1>
+            <ul>
+              <li>Code for Math Game can be found at <a class="color_me_scratch" href="https://scratch.mit.edu/projects/497423672/" target="_blank">My Scratch Link for Math Game</a> </li>
+              <li>A Video demonstrating Math Game can be found at <a class="color_me_youtube" href="https://youtu.be/V5WqGM027x8" target="_blank">My Youtube Link for Math Game</a> </li>
+            </ul>
           </div>
         </section>
         <section id="full_certificate_display">
@@ -532,6 +591,13 @@
             <i class="fa fa-times"></i>
             <img src="" alt="Course_Certificate">
           </div>
+        </section>
+        <section class= "General_header" id="youtube_header">
+          <h1 id="link_for_youtube">Youtube</h1>
+        </section>
+        <section id="youtube">
+          <p>I have recently started making Youtube videos of Math and Computer Science</p>
+          <p>Check out <a href="https://www.youtube.com/channel/UCFFpsOXYEFLxoItnrR7Ef1g" target="_blank">My Youtube Channel</a> if you're interested <span id="youtube_span"> :) </span> </p>
         </section>
       </div>
     </main>

@@ -154,6 +154,7 @@ particle{
   width: 80%;
   margin: 10px auto;
   border: 2px solid #75E6DA;
+  border: 2px solid #30CFD0;
   border-radius: 12px;
   display: grid;
   grid-template-columns: 300px 300px 1fr;
@@ -191,6 +192,20 @@ particle{
 #projects_images img{
   width: 200px;
   height: 250px;
+
+  width: 250px;
+  height: 170px;
+}
+
+.projects_images_class{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+}
+
+.projects_images_class > *{
+  margin: 6px 0px;
 }
 
 #projects_images, #projects_description{
@@ -334,6 +349,7 @@ particle{
   width: 80%;
   margin: 10px auto;
   border: 2px solid #75E6DA;
+  border: 2px solid #30CFD0;
   border-radius: 12px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -504,4 +520,64 @@ particle{
   width: 80%;
   max-width: 1000px;
   aspect-ratio: 4/3;
+}
+
+#youtube{
+  padding: 10px;
+  width: 80%;
+  margin: 10px auto;
+  border: 2px solid #30CFD0;
+  border-radius: 12px;
+  backgrounds: linear-gradient(45deg, #fc575e, #f7b42c);
+  line-height: 2.5;
+}
+
+#youtube_header h1{
+  color: #dd0e42;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+}
+
+#youtube a{
+  display: inline-block;
+  text-decoration: none;
+  color: #dd0e42;
+  font-weight: 600;
+  border-bottom: 1px solid #fff;
+}
+
+#youtube a:hover, .color_me_youtube:hover{
+  border-bottom: 1px solid #dd0e42;
+}
+
+.color_me_github:hover{
+  border-bottom: 1px solid #24292f;
+}
+
+.color_me_github{
+  color: #24292f;
+  font-weight: 600;
+}
+
+.color_me_scratch:hover{
+  border-bottom: 1px solid hsla(215, 100%, 65%, 1);
+}
+
+.color_me_scratch{
+  color: hsla(215, 100%, 65%, 1);
+  font-weight: 600;
+}
+
+.color_me_youtube, .color_me_github, .color_me_scratch{
+  text-decoration: none;
+}
+
+#youtube_span, .color_me_youtube{
+  color: #dd0e42;
+  font-weight: 600;
+}
+
+.miniimgMOOCs{
+  border: 1px solid #75E6DA;
 }
