@@ -585,3 +585,30 @@ particle{
 .miniimgMOOCs{
   border: 1px solid #75E6DA;
 }
+
+#github_link{
+  position: absolute;
+  font-size: 1.25em;
+  top: 29px;
+  right: 25px;
+  opacity: 0.75;
+  animation: github_link_animation 3s linear infinite;
+}
+
+#github_link a{
+  color: #24292f;
+  text-decoration: none;
+}
+
+@keyframes github_link_animation {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+#github_link:hover{
+  opacity: 1;
+}
