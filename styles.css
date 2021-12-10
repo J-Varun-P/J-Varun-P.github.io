@@ -589,7 +589,7 @@ particle{
 #github_link{
   position: absolute;
   font-size: 1.25em;
-  top: 29px;
+  top: 0px;
   right: 25px;
   opacity: 0.75;
   animation: github_link_animation 3s linear infinite;
