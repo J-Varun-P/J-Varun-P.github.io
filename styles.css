@@ -613,3 +613,6 @@ particle{
   opacity: 1;
 }
 
+#changethestyling{
+	display: none;
+}
