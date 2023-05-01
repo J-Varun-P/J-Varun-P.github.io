@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>HCI</title>
+    <link href='https://fonts.googleapis.com/css?family=Londrina Outline' rel='stylesheet'>
+    <style media="screen">
+      body,html{
+        padding: 0px;
+        margin: 0px;
+        min-height: 100vh;
+        min-widths: 100vw;
+      }
+      body > *{
+        margin: 0;
+      }
+      .hci_topics{
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+      }
+      #hci_topics_1, .d{
+        color: orange;
+        font-size: 2em;
+        font-family: Arial;
+      }
+      .d{
+        position: absolute;
+      }
+      @media only screen and (min-width: 600px){
+        #flip_this{
+          writing-mode: vertical-lr;
+        }
+      }
+      #about{
+        font-size: 100px;
+        color: orange;
+        font-family: 'Londrina Outline', Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+      }
+      #about,p,#medium{
+        padding: 0;
+        margin: 0;
+      }
+      #medium{
+        box-sizing: border-box;
+      }
+      .container{
+        padding: 25px 0;
+        box-sizing: border-box;
+      }
+      #header_nav{
+        padding: 1em 0;
+        box-shadow: 0 0 1em rgb(0 0 0 / 10%);
+        font-weight: 500;
+        font-size: 125%;
+        letter-spacing: .02em;
+      }
+
+      #header_nav ul{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+      }
+
+      #header_nav li{
+        padding: 0.5em;
+        margin: 0 0.5em;
+        text-align: center;
+      }
+
+      #header_nav a{
+        color: #003B73;
+        padding-bottom: 0.2em;
+        text-decoration: none;
+        font-family: Arial;
+      }
+
+      #header_nav a:hover{
+        color: #000C66;
+        border-bottom: .1em solid #000C66;
+      }
+
+      #Varun_Bio{
+        display: grid;
+        margin-tops: -80px;
+        width: 75vw;
+        max-width: 800px;
+        margins: auto;
+        margin-lefts: 275px;
+        grid-template-columns: auto auto auto auto auto;
+        grid-template-rows: auto 1fr 1fr auto auto auto auto;
+        grid-gap: 1em;
+        font-family: Arial;
+        color: rgba(12,12,10,0.8);
+      }
+
+      #Varun_Bio h1{
+        margin: 0px;
+      }
+
+      #Varun_Bio h1{
+        font-size: 2em;
+      }
+
+      #Varun_Bio h1:nth-child(1){
+        grid-column: 1/6;
+        text-align: right;
+      }
+
+      #Varun_Bio h1:nth-child(2){
+        writing-mode: vertical-rl;
+        grid-column: 5;
+        grid-row: 2/3;
+        color: #003B73;
+        align-self: start;
+      }
+
+      #Varun_Bio h1:nth-child(3){
+        grid-row: 2;
+        grid-column: 6/8;
+        align-self: end;
+        border-top: 4px solid crimson;
+        border-bottom: 4px solid crimson;
+      }
+
+      #Varun_Bio #styleme{
+        grid-column: 3/8;
+        grid-row: 8;
+        align-self: start;
+        border-bottom: 25px solid crimson;
+      }
+
+      #Varun_Bio h1:nth-child(4){
+        grid-row: 2/3;
+        grid-column: 2/3;
+        writing-mode: vertical-rl;
+      }
+
+      #Varun_Bio h1:nth-child(5){
+        grid-row: 3/4;
+        grid-column:2/3;
+        writing-mode: vertical-rl;
+      }
+
+      #Varun_Bio h1:nth-child(6){
+        grid-row: 4/5;
+        grid-row: 3/4;
+        writing-mode: vertical-rl;
+      }
+
+      #Varun_Bio h1:nth-child(7){
+        grid-row: 4/8;
+        grid-column: 1/8;
+      }
+
+      #spotify_hci_id, #visualization, #medium_projects{
+        margin-top: 25px;
+        margin-bottom: 25px;
+        font-size: 60px;
+        margin-left: 15px;
+      }
+
+
+      @media only screen and (min-width: 900px)
+      {
+        #theme{
+          display: block;
+          font-size: 60px;
+        }
+      }
+
+
+      @media only screen and (max-width: 900px){
+        #theme{
+          display: none;
+        }
+      }
+
+      @media only screen and (min-width: 1350px) {
+        #Varun_Bio{
+          margin-top: -80px;
+          margin-left: 275px;
+          transform: rotate(-30deg);
+        }
+        #spotify_hci_id, #visualization{
+          margin-top: 150px;
+        }
+      }
+
+      #spotify_hci{
+        padding:30px;
+        height: 500px;
+        position: relative;
+        borders: 1px solid navy;
+        box-sizing: border-box;
+      }
+
+      #visualization_id, #memorization_id, #memorization_1_id, #medium_projects{
+        box-sizing: border-box;
+        padding: 25px;
+        display: grid;
+        grid-template-rows: 1fr auto 1fr;
+        grid-template-columns: 1fr auto 1fr;
+        grid-gap: 1em;
+        font-family: Arial;
+        color: rgba(12,12,10, 0.8);
+      }
+
+      #visualization_id img:nth-child(1), #memorization_id img:nth-child(1), #memorization_1_id img:nth-child(1){
+        grid-row: 1/2;
+        grid-column: 1/2;
+        width: 75%;
+        align-self: end;
+        justify-self: end;
+      }
+
+      #visualization_id > p, #memorization_id > p, #memorization_1_id > p{
+        line-height: 1.6;
+      }
+
+      #visualization_id h1:nth-child(2), #memorization_id h1:nth-child(2), #memorization_1_id h1:nth-child(2){
+        padding: 6px;
+        grid-row: 2/3;
+        grid-column: 2/3;
+        writing-mode: vertical-rl;
+        justify-items: end;
+        border-right: 4px solid crimson;
+      }
+
+      #visualization_id h1:nth-child(3), #memorization_id h1:nth-child(3), #memorization_1_id h1:nth-child(3){
+        grid-row: 3/4;
+        grid-column: 1/2;
+        direction: rtl;
+        border-bottom: 4px solid navy;
+      }
+
+      #visualization_id p:nth-child(4), #memorization_id p:nth-child(4), #memorization_1_id p:nth-child(4){
+        grid-row: 2/3;
+        grid-column: 3/4;
+        line-height: 2;
+        font-size: 20px;
+      }
+
+      #visualization_id > img, #memorization_id > img, #memorization_1_id > img{
+        border-radius: 25px;
+      }
+    </style>
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', () => {
+
+        document.getElementById('After_Introduciton').style.display='none';
+        console.log("Hello\n");
+        //const arr1 = ["Empathize","Define","Ideate","Prototype","Test","Design","Evaluate","User-Centered Design","Needfinding","Sketching","Storyboarding","Concept-Videos","Rapid-Prototyping","Low-fidelity","Medium-fidelity","High-fidelity","Affinity Diagramming","Empathy Maps","Brainstorming","Personas","Data Visualization","Cognitive Walkthrough","Heuristic Evaluation","Mental Models","Model Human Processor","Fitts' Law","GOMS","External Cognition","Distributed Cognition","Situated Action","Activity Theory","Grounded Theory","Made by Varun :)","Welcome to","HCI"];
+        const arr1 = ["Empathize","Define","Ideate","Prototype","Test","Design","Evaluate","User-Centered Design","Needfinding","Sketching","Storyboarding","Affinity Diagramming","Empathy Maps","Brainstorming","Personas","Data Visualization","Cognitive Walkthrough","Heuristic Evaluation","Mental Models","Model Human Processor","Fitts' Law","GOMS","External Cognition","Distributed Cognition","Situated Action","Activity Theory","Grounded Theory","Made by Varun :)","Welcome to","HCI"];
+        //const arr2 = [1,5,9,12,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29];
+        const arr2 = [1,4,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38];
+        let change_topic = 1, topic_track=1;
+        document.getElementById('hci_topics_1').innerHTML = `${arr1[0]}`;
+        const arr3 = [-1,-1,-1,-1,-1];
+        const distance_x = [0,0,0,0,0];
+        const distance_y = [0,0,0,0,0];
+        const arr4 = ["Cooking","Singing","Taylor Swift","Ed Sheeran","Late Night Walks","Oh I forgot, HCI as well!!!"];
+        var likes_count=0;
+
+
+        function mylikes(){
+          likes_count++;
+          if(likes_count==6)
+          likes_count=0;
+          my_likes = document.getElementById('change_my_likes');
+          my_likes.innerHTML=`${arr4[likes_count]}`;
+        }
+
+
+        function createParticle (x, y) {
+          console.log('In create particle\n');
+          const particle = document.createElement('div');
+          document.getElementById('spotify_hci').appendChild(particle);
+          y=Math.random()*400;
+          particle.style.opacity = "0";
+          particle.style.left = `${x}px`;
+          particle.style.top = `${y}px`;
+          particle.innerHTML = `${arr1[arr3[fly_topic_fly]]}`;
+          particle.style.color=`#003B73`;
+          particle.classList.add('d');
+          particle.style.position = "absolute";
+          const destinationX = x - (Math.random() - 0.5) * 2 * 300;
+          const destinationY = y - (Math.random() - 0.5) * 2 * 300;
+          console.log('desinationx '+destinationX);
+          console.log('destinationy '+destinationY);
+
+          const animation = particle.animate([
+          {
+          opacity: 1
+          },
+          {
+          opacity: 0.25
+          }
+          ], {
+          duration: Math.random() * 1000 + 2500,
+          easing: 'cubic-bezier(0, .9, .57, 1)',
+          delay: Math.random() * 200
+        });
+          animation.onfinish = () => {
+          particle.remove();
+        };
+        }
+
+
+        function hcitopicsgoaround(){
+          console.log("HCI Topics go around\n");
+          for(let i=0;i<5;i++)
+          {
+              while(true)
+              {
+                  x1 = Math.floor(Math.random() * 28);
+                  if(!arr3.includes(x1))
+                  break;
+              }
+              arr3[i] = x1;
+          }
+          for (let i=0;i<3;i++)
+          {
+              fly_topic_fly=i;
+              console.log('array3 '+arr3[i]);
+              var x = Math.floor(Math.random() * window.screen.availWidth * 0.75);
+              var y = Math.floor(Math.random() * window.screen.availHeight * 0.75);
+              createParticle(x,y);
+          }
+        }
+
+        function hcitopics(){
+          console.log("In HCI-Topics\n");
+          change_topic++;
+          if(arr2[topic_track]==change_topic){
+            topic_track++;
+            if(topic_track < 30){
+              document.getElementById('hci_topics_1').innerHTML = `${arr1[topic_track]}`;
+            }
+            else{
+              clearInterval(intervalId);
+              document.getElementById('Before_Introduction').style.display='none';
+              after_intro = document.getElementById('After_Introduciton');
+              after_intro.style.display='block';
+              const animation1 = after_intro.animate([
+              {
+              opacity: 0
+              },
+              {
+              opacity: 1
+              }
+              ], {
+              duration: Math.random() * 1000 + 1500
+            });
+
+            const animation2 = document.getElementById('theme').animate([
+            {
+            opacity: 1
+            },
+            {
+            opacity: 0
+            }
+            ], {
+            duration: Math.random() * 1000 + 2500
+          });
+
+
+              const intervalId1 = window.setInterval(function(){
+              hcitopicsgoaround();
+            }, 6000);
+            //hcitopicsgoaround();
+            const intervalId2 = window.setInterval(function(){
+            mylikes();
+            }, 2500);
+            }
+          }
+        }
+
+        const intervalId = window.setInterval(function(){
+        hcitopics();
+      }, 175);
+      });
+    </script>
+  </head>
+  <body id="a">
+    <div class="hci_topics" id="Before_Introduction">
+      <div id="hci_topics_1">HCI Topics</div>
+    </div>
+    <div id="After_Introduciton">
+      <div id="a1"></div>
+      <div id="fixthis" style="position: fixed; width: 100%">
+
+      <header>
+      <nav id="header_nav">
+        <ul>
+          <li><a href="#link_for_home">Home</a></li>
+          <li><a href="#link_for_portfolio">Portfolio</a></li>
+          <li><a href="#link_for_manifesto">Design Manifesto</a></li>
+          <li><a href="#link_for_games">Games for HCI</a></li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+      <section id="about">
+            <div class="container">
+              <p><span id="flip_this"> Hi, <span id="flip_this">I'm Varun </span></span>I like <span id="change_my_likes">Cooking</span></p>
+              <p style="position: absolute; top: 75px; right: 25px; color: #003B73" id="theme">Theme: White Space</p>
+            </div>
+      </section>
+      <section id="Varun_Bio">
+        <h1>I'm a Master's Student</h1>
+        <h1>At Emory University</h1>
+        <h1>Studying Computer Science</h1>
+        <h1>In the future, I want to work on</h1>
+        <h1>Interactive Education</h1>
+        <h1>Making Education More Accessible</h1>
+        <h1>For Kids in Rural India who have Limited Resources</h1>
+        <div id="styleme"></div>
+      </section>
+      <h1 style="font-family: 'Londrina Outline'" id="spotify_hci_id"><span style="color:orange; border-bottom: 4px solid crimson">Spot-(ify) HCI Concepts</span></h1>
+      <section id="spotify_hci">
+
+      </section>
+      <h1 style="font-family: 'Londrina Outline'" id="visualization"><span style="color:orange; border-bottom: 4px solid crimson">Games, Games, Games!</span></h1>
+      <section id="visualization_id">
+        <img src="portfolio1.png" alt="A Screenshot of Visualization Game">
+        <h1>A Visualization Game</h1>
+        <h1>Play the Game</h1>
+        <p>
+          This is a game I made for the Visualization Design Sprint,
+          The Data for the UFO sightings in found here,
+          Try to remember the Order of States in terms of
+          number of UFO sightings in duration.
+        </p>
+      </section>
+      <section id="memorization_id">
+        <img src="portfolio2.png" alt="A Screenshot of Memorization Game">
+        <h1>Memorization Game</h1>
+        <h1>Play the Game</h1>
+        <p>
+          This is a game I made for my reseach presentation,
+          The names fly across the screen,
+          Try to memorize the order of names,
+          This is the easy version!
+        </p>
+      </section>
+      <section id="memorization_1_id">
+        <img src="portfolio2.png" alt="A Screenshot of a Tricky Memorization Game">
+        <h1>A Tricky Memorization Game</h1>
+        <h1>Play the Game</h1>
+        <p>
+          This is also a game I made for my reseach presentation,
+          This is a modification of the above memorization game,
+          Try to memorize the order of names,
+          This is a little tricky!
+        </p>
+      </section>
+      <h1 style="font-family: 'Londrina Outline'" id="medium_projects"><span style="color:orange; border-bottom: 4px solid crimson">Projects</span></h1>
+      <section id="medium_projects_1">
+
+      </section>
+    </div>
+
+  </body>
+</html>
