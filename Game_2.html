@@ -1,0 +1,230 @@
+<html>
+    <head>
+        <title>HCI</title>
+        <style>
+        body,html{
+        background-color: orange;
+        color: white;
+	    padding: 0;
+	    margin: 0;
+        }
+        #w{
+	    color: white;
+	    font-family: monospace;
+	    font-size: 1.25rem;
+	    position: relative;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%,-50%);
+	    text-align: center;
+        }
+        .c{
+	    position: absolute;
+        }
+        .d{
+	    position: absolute;
+	    text-align: center;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+        }
+        .v{
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          min-width: 200px;
+        }
+        #score{
+          position:absolute;
+          top: 1.5em;
+          right: 3em;
+          font-size: 1.5em;
+        }
+
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', () =>{
+
+
+                console.log("Hello!");
+                console.log(window.screen.availHeight);
+                console.log(window.screen.availWidth);
+
+                const arr = ["Aylin","Bella","Debbie","Gary","Zheyuan"];
+                console.log(arr);
+                const arr1 = [-1,-1,-1,-1,-1];
+                const arr2 = [-1,-1,-1,-1,-1];
+                const arr3 = [-1,-1,-1,-1,-1];
+                let x1 = -1;
+                let x2=0;
+                let count1=0,cont2=1,count3=0;
+                for(let i=0;i<5;i++)
+                {
+                    while(true)
+                    {
+                        x1 = Math.floor(Math.random() * 5);
+                        if(!arr1.includes(x1))
+                        break;
+                    }
+                    arr1[i] = x1;
+
+                    while(true)
+                    {
+                        x1 = Math.floor(Math.random() * 5 + 1);
+                        if(!arr2.includes(x1))
+                        break;
+                    }
+                    arr2[i] = x1;
+
+                    while(true)
+                    {
+                        x1 = Math.floor(Math.random() * 5);
+                        if(!arr3.includes(x1))
+                        break;
+                    }
+                    arr3[i] = x1;
+
+
+                }
+                console.log(arr1);
+                console.log(arr2);
+                console.log(arr3);
+                for(let i =0;i<5;i++)
+                console.log(arr[arr1[i]]);
+                console.log(`---`);
+                for(let i =0;i<5;i++)
+                console.log(arr[arr2[i]-1]);
+                console.log(`---`);
+                for(let i =0;i<5;i++)
+                console.log(arr[arr3[i]]);
+
+                let checkmedude = 0;
+
+                function pop(){
+                  checkmedude +=1;
+                  console.log("In checkmedude"+" "+checkmedude);
+                  if(checkmedude <= 5)
+                  {
+                  for(let i = 0; i < 1; i++) {
+                    var x = window.screen.availWidth/2;
+                    var y = window.screen.availHeight/2;
+                    console.log(`look here check me ${checkmedude}`);
+                    createParticle(x, y);
+                  }
+                  }
+                  else{
+                    clearInterval(intervalId);
+                    x3=0;
+                    document.getElementById('a').classList.add('v');
+                    document.getElementById('w').style.position = `absolute`;
+                    document.getElementById('w').innerHTML = ``;
+                    for(let i=0;i<5;i++){
+                      const particle = document.createElement('div');
+                      document.getElementById('a').appendChild(particle);
+                      particle.innerHTML=`${arr[arr3[x3]]}`;
+                      x3 = x3+1;
+                      console.log(x2);
+                      particle.classList.add('d');
+                      particle.style.opacity = "0.5";
+                      const size = Math.floor(Math.random() * 30 + 150);
+                      particle.style.width = `${size}px`;
+                      particle.style.height = `${size}px`;
+                      particle.style.fontSize = `x-large`;
+                      particle.style.borderRadius = `${Math.floor(Math.random() * 90)}%`;
+                      particle.style.background = `hsl(${Math.random() * 90 + 180}, 70%, 60%)`;
+                      particle.style.position = `static`;
+                    }
+                    score = 0;
+                    whywontuwork = 0;
+                    clickmeall = 0;
+                    nparticle = document.getElementsByClassName('d');
+                    console.log(nparticle);
+                        for(let i=0;i<5;i++)
+                        {
+                            nparticle[i].addEventListener("click", () => {
+                            clickmeall += 1;
+                            if(arr[arr3[i]] === arr[arr1[whywontuwork]])
+                            score += 1;
+                            document.getElementById('score').innerHTML = `Score: ${score}`;
+                            console.log(`Array3 ${arr[arr3[i]]} Array1 ${arr[arr1[whywontuwork]]}`);
+                            console.log(`Score ${score}`);
+                            nparticle[i].style.display = `none`;
+                            whywontuwork += 1;
+                            console.log(`clickmeall ${clickmeall}`);
+                            if(clickmeall == 5)
+                            {
+                              nparticle = document.getElementsByClassName('d');
+                              console.log(`click all`);
+                              console.log(nparticle);
+                              for(let i=0;i<5;i++)
+                              nparticle[0].remove();
+                              document.getElementById('w').innerHTML = `<a href="#">Play Again</a>`;
+                              document.getElementById('w').style.position = `static`;
+                              document.getElementById('w').addEventListener("click", () => {
+                                document.getElementById('w').innerHTML = `Remember the Order!`;
+                                document.getElementById('score').innerHTML = `Score: __`;
+                                window.location.reload();
+                              });
+                            }
+                            });
+
+                      }
+
+                  }
+
+              }
+
+              const intervalId = window.setInterval(function(){
+              pop();
+            }, 500);
+
+              pop();
+
+                function createParticle (x, y) {
+                console.log('Created Particle\n');
+                const particle = document.createElement('div');
+                document.getElementById('a').appendChild(particle);
+                particle.innerHTML=`${arr[arr1[x2]]}`;
+                x2 = x2+1;
+                console.log(x2);
+                particle.classList.add('d');
+                particle.style.opacity = "0";
+                const size = Math.floor(Math.random() * 30 + 150);
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.fontSize = `x-large`;
+                particle.style.borderRadius = `${Math.floor(Math.random() * 90)}%`;
+                particle.style.background = `hsl(${Math.random() * 90 + 180}, 70%, 60%)`;
+                const destinationX = x + (Math.random() - 0.5) * 2 * 250;
+                const destinationY = y + (Math.random() - 0.5) * 2 * 250;
+                const animation = particle.animate([
+                {
+                transform: `translate(-50%, -50%) translate(${x}px, ${y}px)`,
+                opacity: 1
+                },
+                {
+                transform: `translate(${destinationX}px, ${destinationY}px)`,
+                opacity: 0.25
+                }
+                ], {
+                duration: 400,
+                easing: 'cubic-bezier(0, .9, .57, 1)',
+                delay: 0
+                });
+                animation.onfinish = () => {
+                console.log('animation finished\n');
+                particle.remove();
+                };
+              }
+
+
+            });
+        </script>
+    </head>
+    <body>
+        <div id="a" style="height: 100vh; width: 100vw">
+            <div id="score">Score: __</div>
+            <div id="w">Remember the Order!</div>
+        </div>
+    </body>
+</html>
