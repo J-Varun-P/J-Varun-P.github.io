@@ -32,7 +32,7 @@
 
         .content {
             margin-top: 20px;
-            max-width: 400px;
+            max-width: 360px;
             text-align: center;
         }
         
@@ -47,11 +47,8 @@
 <body>
     <div class="animation">Hi Shiyi</div>
     <div class="content">
-        <p> Tupper's Self-Referential Formula: 
-          <br>
-          1/2 &lt; ⌊ mod( ⌊ y/17 ⌋ 2<sup>-17⌊ x ⌋ - mod( ⌊ y ⌋ , 17) , 2) ⌋
-        </p>
         <p>There's this interesting inequality in math known as Tupper's Self Referential Formula which can plot anything in a grid 106*17 of black and white pixels</p>
+        <p>1/2 &lt; ⌊ mod(( ⌊ y/17 ⌋ 2<sup>-17⌊ x ⌋ - mod( ⌊ y ⌋ , 17)) , 2) ⌋</p>
         <p>For each point in a plane in XY axis, when you put in the x, y coordinates in the ineuality it will tell you if you should color that point or not.</p>
         <p>when you travel along the y axis to a certain point k and you see this 106*17 grid where x(0,16) y(k,k+17), you have the following plot</p>
         <img src="tuppers_self_referential_formula.png" alt="shiyi_tuppers_self_referential_formula">
