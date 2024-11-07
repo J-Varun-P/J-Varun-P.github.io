@@ -5,53 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vrinda</title>
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+        body{
+           display: flex;
+           height: 100vh;
+           margin: 0;
+           padding: 0;
+           justify-content: center;
+           align-items: center;
+           font-family: monospace;
+           background-color: #f0f0f0;
         }
-        
-        .text-container {
-            font-size: 24px;
-            color: #333;
-            opacity: 1;
-            animation: vrinda 3s;
+        #hi {
+            animation: vrinda 4s infinite;
+            font-size: 1.6em;
+            letter-spacing: 0.1em;
+            text-align: center;
+            line-height: 1.6em;
         }
-
         @keyframes vrinda {
-            from {
+            0%{
                 opacity: 1;
             }
-            to {
+            100%{
                 opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="text-container" id="textDisplay"></div>
-
+    <p id="hi"></p>
     <script>
-        const sentences = [
-            "Hi Vrinda!",
-            "Good Evening!",
-            "Since you love Crocheting",
-            "I thought you might like this as well :)",
-        ];
-
+        const sentences = ["Hi Vrinda", "Good Evening!", "Since you love Crocheting", "I thought you might like this one as well :)"];
         let i = 0;
-
-        function displayText() {
-            const textDisplay = document.getElementById("textDisplay");
-            textDisplay.innerHTML = sentences[i];
-            i = (i + 1) % sentences.length;
+        function hello(){
+            if ( i == 4){
+                document.getElementById('hi').innerHTML="";
+                clearInterval(hello);
+                return;
+            }
+            const hi = document.getElementById('hi');
+            hi.innerHTML = sentences[i];
+            i = i + 1;
         }
-
-        setInterval(displayText, 4000);
-        displayText();
+        setInterval(hello,4000);
+        hello();
     </script>
 </body>
 </html>
