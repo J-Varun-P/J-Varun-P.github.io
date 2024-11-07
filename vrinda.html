@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vrinda</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        
+        .text-container {
+            font-size: 24px;
+            color: #333;
+            border-right: 2px solid black;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .typing {
+            animation: typing 2s steps(30, end), blink 0.5s step-end infinite alternate;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            from { border-color: transparent; }
+            to { border-color: black; }
+        }
+    </style>
+</head>
+<body>
+    <div class="text-container" id="textDisplay"></div>
+
+    <script>
+        const sentences = [
+            "Hi Vrinda!",
+            "Good Evening!",
+            "Since you love Crocheting",
+            "I thought you might like this as well :)",
+        ];
+
+        let i = 0;
+
+        function displayText() {
+            const textDisplay = document.getElementById("textDisplay");
+            textDisplay.classList.remove("typing");
+
+            setTimeout(() => {
+                textDisplay.textContent = sentences[i];
+                textDisplay.classList.add("typing");
+            }, 100);
+
+            i = (i + 1) % sentences.length;
+        }
+
+        setInterval(displayText, 4000);
+        displayText();
+    </script>
+</body>
+</html>
