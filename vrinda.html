@@ -19,11 +19,15 @@
             font-size: 24px;
             color: #333;
             opacity: 1;
-            transition: opacity 1.5s ease;
+            animation: vrinda 3s;
         }
 
-        .fade-out {
-            opacity: 0;
+        @keyframes animation {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
         }
     </style>
 </head>
@@ -42,13 +46,7 @@
 
         function displayText() {
             const textDisplay = document.getElementById("textDisplay");
-            textDisplay.classList.remove("fade-out");
-
-            setTimeout(() => {
-                textDisplay.textContent = sentences[i];
-                textDisplay.classList.add("fade-out");
-            }, 1500);
-
+            textDisplay.innerHTML = sentences[i];
             i = (i + 1) % sentences.length;
         }
 
