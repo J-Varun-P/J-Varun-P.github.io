@@ -18,12 +18,12 @@
         .text-container {
             font-size: 24px;
             color: #333;
-            opacity: 0;
-            transition: opacity 1s ease-in;
+            opacity: 1;
+            transition: opacity 1.5s ease;
         }
 
-        .fade-in {
-            opacity: 1;
+        .fade-out {
+            opacity: 0;
         }
     </style>
 </head>
@@ -42,12 +42,12 @@
 
         function displayText() {
             const textDisplay = document.getElementById("textDisplay");
-            textDisplay.classList.remove("fade-in");
+            textDisplay.classList.remove("fade-out");
 
             setTimeout(() => {
                 textDisplay.textContent = sentences[i];
-                textDisplay.classList.add("fade-in");
-            }, 100);
+                textDisplay.classList.add("fade-out");
+            }, 1500);
 
             i = (i + 1) % sentences.length;
         }
