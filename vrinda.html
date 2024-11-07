@@ -18,23 +18,12 @@
         .text-container {
             font-size: 24px;
             color: #333;
-            border-right: 2px solid black;
-            white-space: nowrap;
-            overflow: hidden;
+            opacity: 0;
+            transition: opacity 1s ease-in;
         }
 
-        .typing {
-            animation: typing 2s steps(30, end), blink 0.5s step-end infinite alternate;
-        }
-
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        @keyframes blink {
-            from { border-color: transparent; }
-            to { border-color: black; }
+        .fade-in {
+            opacity: 1;
         }
     </style>
 </head>
@@ -53,11 +42,11 @@
 
         function displayText() {
             const textDisplay = document.getElementById("textDisplay");
-            textDisplay.classList.remove("typing");
+            textDisplay.classList.remove("fade-in");
 
             setTimeout(() => {
                 textDisplay.textContent = sentences[i];
-                textDisplay.classList.add("typing");
+                textDisplay.classList.add("fade-in");
             }, 100);
 
             i = (i + 1) % sentences.length;
