@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathPlot</title>
+    <style>
+        body {
+            font-family: monospace, 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            color: #1d1d1f;
+        }
+        
+        .animation {
+            font-size: 2rem;
+            font-weight: bold;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+            margin-top: 2rem;
+            color: navy;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .content {
+            margin-top: 20px;
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        .content img {
+            width: 100%;
+            max-width: 300px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="animation">Hi Vrinda</div>
+    <div class="content">
+        <p>There's this interesting inequality in math known as Tupper's Self Referential Formula which can plot anything in a grid 106*17 of black and white pixels</p>
+        <img src="self_referential_formula.png" alt="self_referential_formula.png">
+        <p>For each point in a plane in XY axis, when you put in the x, y coordinates in the inequality it will tell you if you should color that point or not</p>
+        <p>When you travel along the y axis to a certain point k and when you see this 106*17 grid where x(0,16) y(k,k+17), you have the following plot</p>
+        <img src="tuppers_self_referential_formula.png" alt="vrinda_tuppers_self_referential_formula">
+        <p style="word-wrap: break-word">The k value that gets you this plot is 10,243,984,125,207,314,638,468,646,037,138,235,648,755,313,734,428,969,047,135,382,593,871,481,522,693,959,848,701,610,951,515,660,883,566,150,627,695,956,504,722,031,181,933,280,477,422,939,679,242,194,323,960,562,922,590,830,492,156,230,282,984,957,038,559,322,954,727,276,640,542,497,960,896,434,852,407,987,845,336,108,607,528,063,765,049,804,309,206,490,277,687,839,761,430,443,775,151,180,550,686,331,852,979,095,471,492,496,520,405,793,978,980,838,825,372,364,988,161,975,313,491,366,253,769,671,750,211,611,497,286,481,053,996,376,040,147,287,026,843,827,443,481,463,634,040,393,887,375,714,047,205,809,586,176</p>
+    </div>
+
+</body>
+</html>
