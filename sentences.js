@@ -7,7 +7,7 @@ const sentences = [
     "Bye"
   ];
   const textContainer = document.getElementById('textContainer');
-  let currentIndex = 1;
+  let currentIndex = -1;
   function updateSentence() {
     textContainer.style.animation = 'slideOut 1.5s forwards';
     setTimeout(() => {
