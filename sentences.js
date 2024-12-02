@@ -7,13 +7,13 @@ const sentences = [
     "Bye"
   ];
   const textContainer = document.getElementById('textContainer');
-  let currentIndex = -1;
+  let currentIndex = 0;
   function updateSentence() {
     textContainer.style.animation = 'slideOut 1.5s forwards';
     setTimeout(() => {
-      currentIndex = (currentIndex + 1) % sentences.length;
-      textContainer.textContent = sentences[currentIndex];
+      textContainer.innerHTML = sentences[currentIndex];
       textContainer.style.animation = 'slideIn 1.5s forwards';
+      currentIndex = (currentIndex + 1) % sentences.length;
     }, 500);
   }
   setInterval(updateSentence, 5500);
