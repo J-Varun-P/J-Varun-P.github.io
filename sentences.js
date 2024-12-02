@@ -1,17 +1,13 @@
 const sentences = [
-    "Hi Kaysen",
-    "Be safe in this Hurricane Helene",
-    "I only shared the game updates more :( because you said you were excited for the game",
-    "Did it overwhelm you again?",
-    "I'm sorry if it did, I'm trying my best to be very moderate",
-    "That's why I didn't message for 2 weeks and waiting for your reply instead",
-    "Please take your time to reply when you don't feel overwhelmed, I'll happily wait",
-    "I only messaged this time because of the Hurricane Helene",
-    "Stay Safe :)",
+    "Hello Hitha Garu",
+    "Ela Unnarandi?",
+    "Merupula ala vachi vellipotharu, Chinukula kasepu undi matladochu ga",
+    "Meeru free unnappude lendi",
+    "Please take your time to reply, I'll happily wait :)",
     "Bye"
   ];
   const textContainer = document.getElementById('textContainer');
-  let currentIndex = 0;
+  let currentIndex = 1;
   function updateSentence() {
     textContainer.style.animation = 'slideOut 1.5s forwards';
     setTimeout(() => {
@@ -21,5 +17,4 @@ const sentences = [
     }, 500);
   }
   setInterval(updateSentence, 5500);
-  updateSentence();
   
