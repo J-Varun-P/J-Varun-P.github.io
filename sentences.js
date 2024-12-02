@@ -16,5 +16,6 @@ const sentences = [
       currentIndex = (currentIndex + 1) % sentences.length;
     }, 500);
   }
+  updateSentence();
   setInterval(updateSentence, 5500);
   
