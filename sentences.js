@@ -3,8 +3,7 @@ const sentences = [
     "Ela Unnarandi?",
     "Merupula ala vachi vellipotharu, Chinukula kasepu undi matladochu ga",
     "Meeru free unnappude lendi",
-    "Please take your time to reply, I'll happily wait :)",
-    "Bye"
+    "Please take your time to reply, I'll happily wait :)"
   ];
   const textContainer = document.getElementById('textContainer');
   let currentIndex = 0;
