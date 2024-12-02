@@ -17,5 +17,5 @@ const sentences = [
     }, 500);
   }
   updateSentence();
-  setInterval(updateSentence, 5500);
+  setInterval(updateSentence, 4500);
   
