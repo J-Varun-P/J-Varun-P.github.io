@@ -13,12 +13,12 @@
   </circle>
 
   <line x1="40%" y1="80%" x2="40%" y2="85%" stroke="#000" stroke-width="1">
-    <animate attributeName="y1" values="80%;82.5%;80%" dur="1.5s" repeatCount="indefinite"/>
-    <animate attributeName="y2" values="85%;87.5%;85%" dur="1.5s" repeatCount="indefinite"/>
+    <animate attributeName="y1" values="80%;82.5%;80%" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="y2" values="85%;87.5%;85%" dur="2s" repeatCount="indefinite"/>
   </line>
   <line x1="50%" y1="80%" x2="50%" y2="85%" stroke="#000" stroke-width="1">
-    <animate attributeName="y1" values="80%;82.5%;80%" dur="1.5s" repeatCount="indefinite"/>
-    <animate attributeName="y2" values="85%;87.5%;85%" dur="1.5s" repeatCount="indefinite"/>
+    <animate attributeName="y1" values="80%;82.5%;80%" dur="2.5s" repeatCount="indefinite"/>
+    <animate attributeName="y2" values="85%;87.5%;85%" dur="2.5s" repeatCount="indefinite"/>
   </line>
   <line x1="60%" y1="80%" x2="60%" y2="85%" stroke="#000" stroke-width="1">
     <animate attributeName="y1" values="80%;82.5%;80%" dur="1.5s" repeatCount="indefinite"/>
