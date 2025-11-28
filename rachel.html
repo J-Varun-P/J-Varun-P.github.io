@@ -227,6 +227,9 @@ async function showNext() {
     }
 
     setTimeout(() => {
+        let time1 = 3000;
+        if(index == 4){
+            time1 = 6000;
         msg.style.animation = `${exitAnim} 1.8s forwards`;
 
         setTimeout(() => {
@@ -235,7 +238,7 @@ async function showNext() {
             setTimeout(showNext, 400);
         }, 1800);
 
-    }, 4000);
+    }, time1);
 }
 
 window.onload = showNext;
