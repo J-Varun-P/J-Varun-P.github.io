@@ -226,10 +226,16 @@ async function showNext() {
         msg.style.animation = `${entrance} 1.2s ease-out forwards`;
     }
 
+    
+    let time1 = 3000;
+    if(index == 4){
+        time1 = 6000;
+    }
+    else{
+        time1 = 3000;
+    }
+    
     setTimeout(() => {
-        let time1 = 3000;
-        if(index == 4){
-            time1 = 6000;
         msg.style.animation = `${exitAnim} 1.8s forwards`;
 
         setTimeout(() => {
