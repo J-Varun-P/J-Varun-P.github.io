@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thanksgiving Messages</title>
+
+<style>
+    body {
+        color: white;
+        margin: 0;
+        padding: 0;
+        background-color: #d97904;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: "Segoe Script", "Lucida Handwriting", cursive;
+    }
+
+    #message, #finalMessage {
+        position: absolute;
+        font-size: 2.6rem;
+        text-align: center;
+        opacity: 0;
+        white-space: pre-line;
+
+        background: linear-gradient(
+            45deg,
+            #fff6d7,
+            #ffe0a3,
+            #ffedcd,
+            #ffffff
+        );
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: gradientFlow 6s ease infinite;
+
+        text-shadow: 0 0 15px rgba(255, 240, 180, 0.9),
+                     0 0 25px rgba(255, 220, 140, 0.8),
+                     0 0 40px rgba(255, 200, 120, 0.6);
+    }
+
+    @keyframes gradientFlow {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    @keyframes slideIn {
+        from { transform: translateY(80px); opacity: 0; }
+        to   { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes zoomIn {
+        from { transform: scale(0.3); opacity: 0; }
+        to   { transform: scale(1); opacity: 1; }
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+
+    @keyframes flyUpRight {
+        to { transform: translate(200px, -200px) rotate(20deg); opacity: 0; }
+    }
+    @keyframes flyUpLeft {
+        to { transform: translate(-200px, -200px) rotate(-20deg); opacity: 0; }
+    }
+    @keyframes spiralOut {
+        to { transform: rotate(900deg) scale(0); opacity: 0; }
+    }
+    @keyframes driftDown {
+        to { transform: translateY(250px); opacity: 0; }
+    }
+    @keyframes shrinkFade {
+        to { transform: scale(0.1); opacity: 0; }
+    }
+
+    .particle {
+        position: fixed;
+        top: -50px;
+        pointer-events: none;
+        user-select: none;
+        animation-timing-function: linear;
+    }
+
+    @keyframes fall {
+        to { transform: translateY(110vh) rotate(360deg); }
+    }
+
+    #finalChoice {
+        position: absolute;
+        bottom: 12%;
+        opacity: 0;
+        text-align: center;
+        transition: opacity 1s ease;
+    }
+    #finalChoice button, #replayAnimation button {
+        padding: 12px 22px;
+        margin: 0 10px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1.3rem;
+        font-family: inherit;
+        color: white;
+        background: #b65200;
+        box-shadow: 0 0 12px rgba(255, 200, 120, 0.8);
+        transition: transform 0.2s;
+    }
+    #finalChoice button:hover, #replayAnimation button:hover {
+        transform: scale(1.2);
+    }
+</style>
+</head>
+
+<body>
+
+<div id="message"></div>
+<div id="finalMessage"></div>
+
+<div id="finalChoice">
+    <div id="finalChoiceMessage" style="margin-bottom: 10px; font-size: 2rem;">So… what do you think?</div>
+    <button id="yesButton">Yes</button>
+    <button id="noButton">No</button>
+    <div id="replayAnimation">
+        <button id="replayButton">Replay</button>
+    </div>
+</div>
+
+<script>
+const messages = [
+    "Hi Rachel! Happy Thanksgiving! 🍁",
+    "I hope you're having an amazing time with your friends and family :)",
+    "I put together this silly animation hoping to catch your eye",
+    "I understand if you're busy with life at the moment",
+    "I was thinking, maybe later when you're free, and if you'd like to put the stethoscope down for an hour and grab a coffee maybe?"
+];
+
+const noMessages = [
+    "Can you reconsider your choice again?",
+    "Please?",
+    "Pretty Please?",
+    "Take a chance maybe? :("
+]
+
+const entranceAnimations = ["slideIn", "zoomIn", "fadeIn"];
+const exitAnimations = ["flyUpRight", "flyUpLeft", "spiralOut", "driftDown", "shrinkFade"];
+
+let index = 0;
+let noIndex = 0;
+const msg = document.getElementById("message");
+const finalmsg = document.getElementById("finalMessage");
+const finalChoiceMsg = document.getElementById("finalChoiceMessage");
+const finalBox = document.getElementById("finalChoice");
+const yesButton = document.getElementById("yesButton");
+const noButton = document.getElementById("noButton");
+const replayAnimation = document.getElementById("replayAnimation");
+const replayButton = document.getElementById("replayButton");
+replayAnimation.style.display = "none";
+
+
+function typewriter(text, element, speed = 40) {
+    element.textContent = "";
+    let i = 0;
+    return new Promise(resolve => {
+        const interval = setInterval(() => {
+            element.textContent += text[i];
+            i++;
+            if (i >= text.length) {
+                clearInterval(interval);
+                resolve();
+            }
+        }, speed);
+    });
+}
+
+function yesClick(){
+    finalmsg.textContent = "Awesome! A Date it is then :)";
+    finalChoiceMsg.textContent = "";
+    document.getElementById("yesButton")?.remove();
+    document.getElementById("noButton")?.remove();
+    replayAnimation.style.display="block";
+}
+
+async function noClick(){
+    const entrance = entranceAnimations[Math.floor(Math.random() * entranceAnimations.length)];
+    //finalChoiceMsg.textContent = noMessages[noIndex];
+    if (Math.random() < 0.35) {
+        await typewriter( noMessages[noIndex], finalChoiceMsg);
+    } else {
+        finalChoiceMsg.textContent = noMessages[noIndex];
+        finalChoiceMsg.style.animation = `${entrance} 1.2s ease-out forwards`;
+    }
+    if(noIndex < 3){
+        noIndex += 1;
+    }
+}
+
+yesButton.addEventListener("click", yesClick);
+noButton.addEventListener("click", noClick);
+
+async function showNext() {
+    if (index >= messages.length) {
+        setTimeout(() => {
+            finalBox.style.opacity = 1;
+        }, 800);
+        finalmsg.style.opacity = 1;
+        finalmsg.textContent = "A Date sometime maybe?";
+        return;
+    }
+
+    const text = messages[index];
+    const entrance = entranceAnimations[Math.floor(Math.random() * entranceAnimations.length)];
+    const exitAnim = exitAnimations[Math.floor(Math.random() * exitAnimations.length)];
+
+    msg.style.opacity = 1;
+    msg.style.animation = "";
+
+    if (Math.random() < 0.35 && index != 4) {
+        await typewriter(text, msg);
+    } else {
+        msg.textContent = text;
+        msg.style.animation = `${entrance} 1.2s ease-out forwards`;
+    }
+
+    setTimeout(() => {
+        msg.style.animation = `${exitAnim} 1.8s forwards`;
+
+        setTimeout(() => {
+            msg.style.opacity = 0;
+            index++;
+            setTimeout(showNext, 400);
+        }, 1800);
+
+    }, 4000);
+}
+
+window.onload = showNext;
+
+function createParticle() {
+    const p = document.createElement("div");
+    p.classList.add("particle");
+
+    const leaves = ["🍁", "🍂"];
+    const useLeaf = Math.random() < 0.6;
+
+    p.textContent = useLeaf ? leaves[Math.floor(Math.random() * leaves.length)] : "❄";
+
+    p.style.left = Math.random() * window.innerWidth + "px";
+    p.style.fontSize = (Math.random() * 1.5 + 1) + "rem";
+    p.style.opacity = Math.random();
+    p.style.animationDuration = (Math.random() * 6 + 6) + "s";
+    p.style.animationName = "fall";
+
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), 12000);
+}
+
+setInterval(createParticle, 200);
+
+function resetAnimationState() {
+    index = 0;
+    noIndex = 0;
+
+    finalmsg.textContent = "";
+    finalmsg.style.opacity = 0;
+    finalChoiceMsg.textContent = "";
+    finalBox.style.opacity = 0;
+    
+    document.querySelectorAll('.particle').forEach(p => p.remove());
+    const newYesButton = document.createElement("button");
+    newYesButton.id = "yesButton";
+    newYesButton.textContent = "Yes";
+    newYesButton.addEventListener("click", yesClick);
+    finalBox.insertBefore(newYesButton, replayAnimation);
+    
+    const newNoButton = document.createElement("button");
+    newNoButton.id = "noButton";
+    newNoButton.textContent = "No";
+    newNoButton.addEventListener("click", noClick);
+    finalBox.insertBefore(newNoButton, replayAnimation);
+    replayAnimation.style.display = "none";
+}
+
+function replayAnimationSequence() {
+    resetAnimationState();
+    showNext();
+}
+
+replayButton.addEventListener("click", replayAnimationSequence);
+</script>
+
+</body>
+</html>
